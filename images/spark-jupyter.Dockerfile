@@ -1,4 +1,5 @@
-FROM 192.168.1.3:3000/binayakd/spark-aws:3.5.4
+ARG SPARK_BASE
+FROM ${SPARK_BASE}
 
 USER root
 
