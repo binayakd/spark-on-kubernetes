@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minio
+  namespace: spark
+  labels:
+    app: minio
+spec:
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      labels:
+        app: minio
+    spec:
+      containers:
+      - name: minio
+        image: quay.io/minio/minio:latest
+        env:
+          - name: "MINIO_ROOT_USER"
+            value: "sparkminio"
+          - name: "MINIO_ROOT_PASSWORD"
+            value: "sparkminio"
+        command:
+          - /bin/bash
+          - -c
+        args: 
+          - minio server /data --console-address :9090
+        resources: {}
+        volumeMounts:
+          - mountPath: /data
+            name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: minio-pvc
+
