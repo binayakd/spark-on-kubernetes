@@ -21,7 +21,7 @@ Update registry, path and tags to use for the images in `images/build.sh`, and r
 
 ## Create and deploy k8s resources
 
-Update the images names and tags in `kube/kustomization.yaml`, and run `kustomize build ./kube -o output` to generate the k8s manifests. The resources that will be produced will be:
+Update the images names and tags in `k8s/kustomization.yaml`, and run `kustomize build ./kube -o output` to generate the k8s manifests. The resources that will be produced will be:
 
 1. Namespace
 2. RBAC configs for Spark submit (from jupyter lab) and spark driver
