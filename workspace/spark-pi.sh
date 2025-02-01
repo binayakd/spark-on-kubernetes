@@ -17,5 +17,6 @@ $SPARK_HOME/bin/spark-submit \
     --conf spark.hadoop.fs.s3a.path.style.access=true \
     --conf spark.hadoop.fs.s3a.connection.ssl.enabled=false\
     --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem \
+    --conf spark.kubernetes.container.image.pullPolicy=Always \
     local:///opt/spark/examples/src/main/python/pi.py \
     1000

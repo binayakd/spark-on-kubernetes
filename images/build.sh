@@ -14,7 +14,7 @@ echo "Pushing ${SPARK_AWS_IMAGE}"
 podman push ${SPARK_AWS_IMAGE}
 
 echo "Building ${SPARK_JUPYTER_IMAGE}"
-podman build -t ${SPARK_JUPYTER_IMAGE} --build-arg SPARK_BASE=${SPARK_JUPYTER_IMAGE} -f spark-jupyter.Dockerfile
+podman build -t ${SPARK_JUPYTER_IMAGE} --build-arg SPARK_BASE=${SPARK_AWS_IMAGE} -f spark-jupyter.Dockerfile
 
 echo "Pushing ${SPARK_JUPYTER_IMAGE}"
 podman push ${SPARK_JUPYTER_IMAGE}
